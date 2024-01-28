@@ -4,14 +4,18 @@ from datetime import timedelta, datetime
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.bash import BashOperator
 from airflow.operators.python import PythonOperator
-from airflow.utils.dates import days_ago # handy scheduling tool that allows us to write the code in line 24
+from airflow.utils.dates import days_ago # scheduling tool that allows us to write the code in line 24
 
-# Create a list of apple types
+
+######## Functions that will be called later #############################
+# List of apple types
 apples = ["pink lady", "jazz", "orange pippin", "granny smith", "red delicious", "gala", "honeycrisp", "mcintosh", "fuji"]
 
-def print_date():
-    """A very simple python function to call"""
-    print(datetime.now())
+# This function will open a text file, read the name from the file and print the name with a hello
+def print_hello():
+    
+#### This function will randomly select an apple, put it into a string and print the string
+def random_apples():
 
 ############# Config ########################
 # Create a dictionary of default args for scheduling and retries. 
@@ -27,7 +31,7 @@ default_args = {
 }
 
 ################### DAG instantiation ##########################
-# The DAG object; we'll need this to instantiate a DAG
+
 from airflow import DAG
 
 with DAG(
