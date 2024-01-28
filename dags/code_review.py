@@ -17,13 +17,14 @@ apples = ["pink lady", "jazz", "orange pippin", "granny smith", "red delicious",
 file_path = '/opt/airflow/dags/code_review.txt'
 
 # This function will open a text file, read the name from the file and print the name with a hello
-def print_hello(file_path):
-    with open(file_path,'r') as f:
-    name = f.read()
+def print_hello():
+    with open('/opt/airflow/dags/code_review.txt','r') as f:
+        name = f.read()
     print(f"hello {name}")
+
     
 # This function will randomly select an apple, put it into a string and print the string
-def random_apples(apples):
+def random_apples():
     random_apple= random.choice(apples)
     print(f"Your apple is: {random_apple}")
 
