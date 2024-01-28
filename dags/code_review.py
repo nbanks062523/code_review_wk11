@@ -54,14 +54,14 @@ with DAG(
     ### TASKS ###
 
 # This task will write a name to a text file
-    write_name_task = BashOperator(
-        task_id='write_name', # this is the unique identifier of this task within the DAG
+    ETF_task = BashOperator(
+        task_id='echo_to_file', # this is the unique identifier of this task within the DAG
         bash_command='echo "Nikisha" >  /opt/airflow/dags/code_review.txt' # this is the command that will be run
     )
     
 # This task uses a Python operator to call the function 'print_hello()'
     hello_task = PythonOperator(
-        task_id='say_hello', # this is the unique identifier of this task within the DAG
+        task_id='greeting_task', # this is the unique identifier of this task within the DAG
         python_callable = print_hello # allows the DAG to execute the function print_hello listed above 
     )
     
@@ -80,11 +80,11 @@ with DAG(
     )
 
 # Empty operator task 
-    dummy_task = DummyOperator(
-        task_id='dummy'
+    end_task = DummyOperator(
+        task_id='end'
     )
     # set the task order
     # The example below is using a list
     # the reason for this is to specify that we want 'hello_task' to precede 'date_task' & 'dummy_task'
     # and there are no dependencies between 'date_task' and 'dummy_task'
-    hello_task >> [date_task, dummy_task]
+    ETF_task >> hello_task >> [applePick_task1, applePick_task2,applePick_task3]>> end_task
