@@ -54,45 +54,19 @@ The DAG Diagram in this project shows the order of tasks and their dependencies,
   3. The third thru fifth tasks are Python Operator tasks that calls the function 'random_apples' and returns a random apple chosen from a list called 'apples'
   4. The last task ends the DAG  
    
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/nfl_sports_betting.drawio.png)
+![Image](https://github.com/nbanks062523/code_review_wk11/blob/fffd5436dbf8f7d58b23bf60fd830c77589de8e1/DAG.png)
 ---
-## Big Query Datasets
-This section displays the tables, fields and data types contained in the sports betting dataset.
+## DAG Final Outcome
+As shown in the image the 'echo_to_file' task was successful on every run. The remainder of the tasks failed on 3 out of 4 runs, this was due to the functions having an incorrect parameter listed. This was corrected by leaving the parenthesis empty.
 
-**Games Dimension Table Schema**
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/Games_Dimension_Tble.png)
+![Image](https://github.com/nbanks062523/code_review_wk11/blob/fffd5436dbf8f7d58b23bf60fd830c77589de8e1/FinalDAGOutcome.png)
 ---
-**Over/Under Fact Table Schema**
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/Ovr_Undr_FctTble.png)
----
-**Points Spread Fact Table Schema**
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/fct_points_spread.png)
----
-**Team Lookup Table Schema**
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/TeamID_LookupSchema.png)
----
-## Table Views Queries and Schemas
-In this section, alternate "views" are created that have joined the tables together to allow for greater flexibility in analysis of the data.
----
-**Games**
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/Games_ViewTable.png)
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/Query_GamesViewTable.png)
----
-**Over/Under**
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/Ovr_Undr_TbleView.png)
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/Query_OvrUndrTbleView.png)
----
-**Points Spread**
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/PointSpread_ViewTable.png)
-![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/Query_PointSpreadViewTble.png)
+## Apple Selections
+The following three visuals are snapshots from the log files after the random apple picking tasks were completed. The random apple that was chosen is highlighted.
 
-## Sample Page from Sports Betting Dashboard
-Below is a screenshot of one of the pages on the sports betting dashboard. Some of the metrics represented in this page are: 
-  - A season by season comparison of wins between the home and away teams
-  - A team by team overview of the percentage of times the winning team scored over the winning line
-  - The Average scores of each game from 1978 to 2023
-
- ![Image](https://github.com/nbanks062523/CodeReview_week10/blob/main/images/Dashboard_NB.png) 
+![Image](https://github.com/nbanks062523/code_review_wk11/blob/fffd5436dbf8f7d58b23bf60fd830c77589de8e1/AppleChoice_1.png)
+![Image](https://github.com/nbanks062523/code_review_wk11/blob/fffd5436dbf8f7d58b23bf60fd830c77589de8e1/AppleChoice_2.png)
+![Image](https://github.com/nbanks062523/code_review_wk11/blob/fffd5436dbf8f7d58b23bf60fd830c77589de8e1/AppleChoice_3.png)
 
 # License
 *Copyright 2024, Data Stack Academy Fall 2023 Cohort*
