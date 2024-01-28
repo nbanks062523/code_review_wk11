@@ -10,12 +10,13 @@ from airflow.utils.dates import days_ago # scheduling tool that allows us to wri
 
 
 ######## Functions that will be called later #############################
+
 # List of apple types
 apples = ["pink lady", "jazz", "orange pippin", "granny smith", "red delicious", "gala", "honeycrisp", "mcintosh", "fuji"]
-
-# This function will open a text file, read the name from the file and print the name with a hello
+# Path to code review text file
 file_path = '/opt/airflow/dags/code_review.txt'
 
+# This function will open a text file, read the name from the file and print the name with a hello
 def print_hello(file_path):
     with open(file_path,'r') as f:
     name = f.read()
@@ -63,8 +64,22 @@ with DAG(
         task_id='say_hello', # this is the unique identifier of this task within the DAG
         python_callable = print_hello # allows the DAG to execute the function print_hello listed above 
     )
+    
+# These tasks use a Python operator to call the function 'random_apples()' 3x
+    applePick_task1 = PythonOperator(
+        task_id='apple_1', # this is the unique identifier of this task within the DAG
+        python_callable = random_apples # allows the DAG to execute the function print_hello listed above 
+    )
+    applePick_task2 = PythonOperator(
+        task_id='apple_2', # this is the unique identifier of this task within the DAG
+        python_callable = random_apples # allows the DAG to execute the function print_hello listed above 
+    )
+    applePick_task3 = PythonOperator(
+        task_id='apple_3', # this is the unique identifier of this task within the DAG
+        python_callable = random_apples # allows the DAG to execute the function print_hello listed above 
+    )
 
-# The DummyOperator doesn't actually do anything and is used to show graph structure or for grouping tasks in a DAG
+# Empty operator task 
     dummy_task = DummyOperator(
         task_id='dummy'
     )
